@@ -34,7 +34,7 @@ jobs:
           python-version: ${{env.python-version}}
       - name: find envs
         run: |
-          ls ~/.conda
+          ls -l ${CONDA}
 #      - name: cache conda envs
 #        uses: actions/cache@v2
 #        env:
