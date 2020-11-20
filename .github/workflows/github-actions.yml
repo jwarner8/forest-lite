@@ -35,26 +35,20 @@ jobs:
       - name: cache conda pkgs
         uses: actions/cache@v2
         env:
-          cache-name: cache-conda-envs
+          cache-name: cache-conda-dir
         with:
-          path: ${CONDA}/pkgs
+          path: ${CONDA}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('requirements*.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: list before
-        run: |
-          ls -l ${CONDA}/*
       - name: conda install
         run: |
           conda install -c conda-forge --file requirements.txt --file requirements-test.txt
           pip install -e .
           echo $?
-      - name: list after
-        run: |
-          ls -l ${CONDA}/*
       - name: pytest
         run: |
           ls $CONDA/envs
