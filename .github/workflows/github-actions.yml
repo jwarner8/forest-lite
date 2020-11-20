@@ -38,7 +38,7 @@ jobs:
           cache-name: cache-conda-envs
         with:
           path: ${CONDA}/pkgs
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles("requirements*.txt") }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('requirements*.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
