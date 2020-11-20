@@ -39,5 +39,6 @@ jobs:
           echo $?
       - name: pytest
         run: |
+          ls $CONDA/envs
           $CONDA/bin/pytest
         working-directory: ${{env.working-directory}}
