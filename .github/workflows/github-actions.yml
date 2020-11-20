@@ -32,12 +32,15 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{env.python-version}}
+      - name: get cache dir
+        id: conda-cache
+        run: echo "::set-output name=dir::${CONDA}"
       - name: cache conda pkgs
         uses: actions/cache@v2
         env:
           cache-name: cache-conda-dir
         with:
-          path: ${{ env.CONDA }}
+          path: ${{ steps.conda-cache.outputs.dir }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('requirements*.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
