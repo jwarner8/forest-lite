@@ -37,7 +37,7 @@ jobs:
         env:
           cache-name: cache-conda-dir
         with:
-          path: ${CONDA}
+          path: ${{ env.CONDA }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('requirements*.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
