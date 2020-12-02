@@ -26,3 +26,14 @@ test("CoastlineMenu checkbox click", () => {
     fireEvent.click(screen.getByText("Coastlines"))
     expect(store.getState().coastlines).toBe(true)
 })
+
+
+test("CoastlineMenu refresh button", () => {
+    const store = createStore()
+    render(
+        <Provider store={ store } >
+            <CoastlineMenu />
+        </Provider>
+    )
+    expect(screen.getByRole("button", { name: /refresh/i })).toBeInTheDocument()
+})

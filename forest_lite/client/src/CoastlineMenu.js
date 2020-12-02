@@ -10,9 +10,19 @@ const CoastlineMenu = () => {
         <div>
             <fieldset>
                 <CoastlinesToggle />
+                <RefreshButton />
             </fieldset>
         </div>
     </>)
+}
+
+
+const RefreshButton = () => {
+    return (
+        <button aria-label="refresh">
+            <i className="fas fa-sync"></i>
+        </button>
+    )
 }
 
 
