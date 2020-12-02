@@ -6,12 +6,23 @@ import CoastlineMenu from "../src/CoastlineMenu.js"
 import { createStore } from "../src/create-store.js"
 
 
-test("CoastlineMenu", () => {
+test("CoastlineMenu checkbox click", () => {
     const store = createStore()
     render(
         <Provider store={ store } >
             <CoastlineMenu />
         </Provider>
     )
+
+    // Default state
     expect(screen.getByText(/coastlines, borders and lakes/i)).toBeInTheDocument()
+    expect(store.getState().coastlines).toBe(undefined)
+
+    // Click checkbox
+    fireEvent.click(screen.getByText("Coastlines"))
+    expect(store.getState().coastlines).toBe(false)
+
+    // Click checkbox again
+    fireEvent.click(screen.getByText("Coastlines"))
+    expect(store.getState().coastlines).toBe(true)
 })
