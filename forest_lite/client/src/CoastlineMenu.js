@@ -7,7 +7,11 @@ import "./CoastlineMenu.css"
 const CoastlineMenu = () => {
     return (<>
         <div className="label">Coastlines, borders and lakes</div>
-        <CoastlinesToggle />
+        <div>
+            <fieldset>
+                <CoastlinesToggle />
+            </fieldset>
+        </div>
     </>)
 }
 
@@ -23,8 +27,6 @@ const CoastlinesToggle = () => {
         dispatch(action)
     }
     return (
-        <div>
-            <fieldset>
             <label>
                 <input
                     type="checkbox"
@@ -32,8 +34,6 @@ const CoastlinesToggle = () => {
                     onChange={ onChange } />
                 Coastlines
             </label>
-            </fieldset>
-        </div>
     )
 
 }
