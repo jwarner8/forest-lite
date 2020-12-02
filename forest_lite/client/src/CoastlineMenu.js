@@ -4,19 +4,10 @@ import { setFlag } from "./actions.js"
 import "./CoastlineMenu.css"
 
 
-class Label extends React.Component {
-    render() {
-        return <div className="label">{ this.props.children }</div>
-    }
-}
-
-
 const CoastlineMenu = () => {
     return (<>
-        <Label>Coastlines, borders and lakes</Label>
-        <fieldset>
+        <div className="label">Coastlines, borders and lakes</div>
         <CoastlinesToggle />
-        </fieldset>
     </>)
 }
 
@@ -31,26 +22,20 @@ const CoastlinesToggle = () => {
         })
         dispatch(action)
     }
-    return (<Item key="coastlines"
-                  checked={ active }
-                  onChange={ onChange }>Coastlines</Item>)
-
-}
-
-
-const Item = (props) => {
-    const { checked, onChange, children } = props
     return (
         <div>
+            <fieldset>
             <label>
                 <input
                     type="checkbox"
-                    checked={ checked }
+                    checked={ active }
                     onChange={ onChange } />
-                { children }
+                Coastlines
             </label>
+            </fieldset>
         </div>
     )
+
 }
 
 
