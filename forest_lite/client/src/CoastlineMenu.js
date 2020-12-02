@@ -1,6 +1,7 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { setFlag } from "./actions.js"
+import "./CoastlineMenu.css"
 
 
 class Label extends React.Component {
